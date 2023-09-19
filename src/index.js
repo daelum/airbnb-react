@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import House from './pages/House'
+import EditHouse from './pages/EditHouse'
+import HouseCreate from './pages/HouseCreate'
+import Profile from './pages/Profile'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
