@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.input-group {
+  width: auto;
+}
+
+.form-select {
+  width: auto;
+}
