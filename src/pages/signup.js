@@ -1,13 +1,10 @@
-import logo from './logo.svg'
-import './App.css'
-
 function Signup() {
   return (
     <div
       style={{
-        backgroundImage: url(
+        backgroundImage: `url(
           'https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg'
-        ),
+        )`,
       }}
     >
       {/* <!-- card container --> */}
@@ -15,7 +12,7 @@ function Signup() {
         <div className="card border-3 bg-light ms-0">
           <div className="container d-grid justify-content-center align-content-center">
             <img
-              style={{'width: 150px'}}
+              style={{ width: '150px' }}
               className="card-img-top p-3"
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
             />
@@ -55,7 +52,7 @@ function Signup() {
                   <a
                     href=""
                     className="link-success"
-                    style="text-underline-position: below;"
+                    style={{ TextUnderlinePosition: 'below' }}
                   >
                     Login
                   </a>
