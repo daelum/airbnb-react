@@ -1,7 +1,4 @@
-import logo from './logo.svg'
-import './App.css'
-
-function App() {
+function Houses() {
   return (
     //   <!-- LOGGED OUT -->
     //  <div class="header">
@@ -293,4 +290,4 @@ function App() {
   )
 }
 
-export default App
+export default Houses
