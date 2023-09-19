@@ -14,35 +14,37 @@ function House() {
             </nav>
         </div> --> */}
       {/* <!-- LOGGED IN --> */}
-      <div className="header">
-        <nav className="navbar bg-body-tertiary">
-          <div className="container-fluid">
-            <img
-              className="logo"
-              style="width: 7rem; height: auto"
-              src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
-            />
-            <form className="d-flex" role="search">
-              <button
-                className="btn btn-outline-success login-button me-2"
-                type="submit"
-              >
-                <img
-                  className="profile-pic rounded-circle me-1"
-                  style="width: 1.27rem; height: 1.27rem"
-                  src="images/IMG_8468.jpg"
-                />
-                Daelum M
-              </button>
-              <button
-                className="btn btn-outline-success logout-button"
-                type="submit"
-              >
-                Logout
-              </button>
-            </form>
-          </div>
-        </nav>
+      <div>
+        <div className="header">
+          <nav className="navbar bg-body-tertiary">
+            <div className="container-fluid">
+              <img
+                className="logo"
+                style={{ width: '7rem', height: 'auto' }}
+                src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
+              />
+              <form className="d-flex" role="search">
+                <button
+                  className="btn btn-outline-success login-button me-2"
+                  type="submit"
+                >
+                  <img
+                    className="profile-pic rounded-circle me-1"
+                    style={{ width: '1.27rem', height: '1.27rem' }}
+                    src="images/IMG_8468.jpg"
+                  />
+                  Daelum M
+                </button>
+                <button
+                  className="btn btn-outline-success logout-button"
+                  type="submit"
+                >
+                  Logout
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
       </div>
       {/* <!-- main imagess --> */}
       <div className="container border-bottom border-top">
@@ -50,7 +52,7 @@ function House() {
           <div className="col">
             <img
               className="img-fluid col-md-8"
-              style="width: 100%; height: auto"
+              style={{ width: '100%', height: 'auto' }}
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
               alt="House One"
             />
@@ -60,7 +62,7 @@ function House() {
               <div className="row row-cols-3 pt-3">
                 <div className="col mb-3">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
                     className="col-md-2"
                     alt="..."
@@ -68,7 +70,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png
                                 "
                     className="col-md-2"
@@ -77,7 +79,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png
                                 "
                     className="col-md-2"
@@ -86,7 +88,7 @@ function House() {
                 </div>
                 <div className="col mb-3">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png
                                 "
                     className="col-md-2"
@@ -95,7 +97,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png
                                 "
                     className="col-md-2"
@@ -104,7 +106,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png
                                 "
                     className="col-md-2"
@@ -113,7 +115,7 @@ function House() {
                 </div>
                 <div className="col mb-3">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png
                                 "
                     className="col-md-2"
@@ -122,7 +124,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png
                                 "
                     className="col-md-2"
@@ -131,7 +133,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
-                    style="width: 100%; height: auto"
+                    style={{ width: '100%', height: 'auto' }}
                     src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png
                                 "
                     className="col-md-2"
@@ -156,7 +158,7 @@ function House() {
                   <div className="col col-2">
                     <img
                       className="profile-pic rounded-circle me-3 d-inline-block mt-4"
-                      style="width: 3rem; height: 3rem"
+                      style={{ width: '3rem', height: '3rem' }}
                       src="https://randomuser.me/api/portraits/men/11.jpg"
                     />
                   </div>
@@ -193,7 +195,7 @@ function House() {
                       className="form-control"
                       placeholder="Leave a comment here"
                       id="floatingTextarea2"
-                      style="height: 100px"
+                      style={{ height: '100px' }}
                     ></textarea>
                     <label for="floatingTextarea2">Leave a review..</label>
                   </div>
@@ -221,7 +223,7 @@ function House() {
                     <div className="col col-2">
                       <img
                         className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
-                        style="width: 3rem; height: 3rem"
+                        style={{ width: '3rem', height: '3rem' }}
                         src="https://randomuser.me/api/portraits/men/11.jpg"
                       />
                     </div>
@@ -251,7 +253,7 @@ function House() {
                     <div className="col col-2 d-inline-block">
                       <img
                         className="profile-pic rounded-circle me-3 mt-4 ms-3"
-                        style="width: 3rem; height: 3rem"
+                        style={{ width: '3rem', height: '3rem' }}
                         src="https://randomuser.me/api/portraits/men/11.jpg"
                       />
                     </div>
@@ -289,7 +291,7 @@ function House() {
                       className="form-control"
                       placeholder="Send the host a message"
                       id="floatingTextarea2"
-                      style="height: 100px"
+                      style={{ height: '100px' }}
                     ></textarea>
                   </div>
                   <button className="btn btn-success mb-3 pb-2">
