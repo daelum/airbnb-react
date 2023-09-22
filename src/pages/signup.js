@@ -1,6 +1,6 @@
-import SignUpForm from "./SignupForm"
+import SignUpForm from './SignupForm'
 
-function Signup() {
+export default function Signup() {
   return (
     <div
       style={{
@@ -26,5 +26,3 @@ function Signup() {
     </div>
   )
 }
-
-export default Signup
