@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
-let house = {
+const house = {
   title: 'Luxury Villa in Chaweng',
   description:
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, reiciendis quis. Nesciunt possimus quos odit velit debitis fugiat, vero dolorum deleniti totam ipsum at amet esse expedita. Mollitia, laudantium. Corporis nesciunt animi amet  ullam nemo sequi, at perferendis saepe neque quibusdam! Molestiae nulla delectus, mollitia nihil rerum iste ullam hic reprehenderit obcaecati assumenda aut debitis ea fuga ut consectetur perspiciatis animi architecto voluptates quasi ad quaerat quidem necessitatibus! Soluta similique architecto laboriosam repellat velit libero quos voluptatum, harum a fugit inventore dolore. Tempora maiores perferendis quisquam exercitationem, ullam explicabo suscipit perspiciatis aspernatur rem ratione quibusdam mollitia nisi earum repudiandae incidunt.',
@@ -27,7 +27,7 @@ let house = {
   },
 }
 
-let reviews = {
+const reviews = {
   date: '15 Sept 2023 - 1:01',
   description:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
@@ -38,13 +38,17 @@ let reviews = {
   },
 }
 
-function House() {
+export default function House() {
   // Gallery
-  // Create a state variable selectedPhoto that holds the photo to show in the large section of the gallery (the "selected" photo) and its function setSelectedPhoto.
-  // Connect the function to each of the 9 thumbnails, so that clicking a thumbnail changes the large photo.
   const [selectedPhoto, setSelectedPhoto] = useState(
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
   )
+  // Create a function addReview that adds a review to the list of reviews
+  function addReview() {
+    // Add a review to the list of reviews
+    // Trigger the function when clicking the "Submit" button under the "Leave a Review" form
+    // Use the content of the textarea in the form and the "thumb up / down" as the data for the new review
+  }
 
   return (
     <>
@@ -327,5 +331,3 @@ function House() {
     </>
   )
 }
-
-export default House
