@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 // In the House page, create an object house with all the properties of a house:
 let house = {
   title: 'Luxury Villa in Chaweng',
@@ -37,6 +39,13 @@ let reviews = {
 }
 
 function House() {
+  // Gallery
+  // Create a state variable selectedPhoto that holds the photo to show in the large section of the gallery (the "selected" photo) and its function setSelectedPhoto.
+  // Connect the function to each of the 9 thumbnails, so that clicking a thumbnail changes the large photo.
+  const [selectedPhoto, setSelectedPhoto] = useState(
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
+  )
+
   return (
     <>
       {/* <!-- LOGGED OUT --> */}
@@ -91,7 +100,7 @@ function House() {
             <img
               className="img-fluid col-md-8"
               style={{ width: '100%', height: 'auto' }}
-              src={house.photos[0]}
+              src={selectedPhoto}
               alt="House One"
             />
           </div>
@@ -100,6 +109,7 @@ function House() {
               <div className="row row-cols-3 pt-3">
                 <div className="col mb-3">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[1]}
                     className="col-md-2"
@@ -108,6 +118,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[2]}
                     className="col-md-2"
@@ -116,6 +127,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[3]}
                     className="col-md-2"
@@ -124,6 +136,7 @@ function House() {
                 </div>
                 <div className="col mb-3">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[4]}
                     className="col-md-2"
@@ -132,6 +145,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[5]}
                     className="col-md-2"
@@ -140,6 +154,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[6]}
                     className="col-md-2"
@@ -148,6 +163,7 @@ function House() {
                 </div>
                 <div className="col mb-3">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[7]}
                     className="col-md-2"
@@ -156,6 +172,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[8]}
                     className="col-md-2"
@@ -164,6 +181,7 @@ function House() {
                 </div>
                 <div className="col">
                   <img
+                    onClick={(e) => setSelectedPhoto(e.target.src)}
                     style={{ width: '100%', height: 'auto' }}
                     src={house.photos[0]}
                     className="col-md-2"
