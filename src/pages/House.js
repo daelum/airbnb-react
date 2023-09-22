@@ -1,3 +1,41 @@
+// In the House page, create an object house with all the properties of a house:
+let house = {
+  title: 'Luxury Villa in Chaweng',
+  description:
+    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, reiciendis quis. Nesciunt possimus quos odit velit debitis fugiat, vero dolorum deleniti totam ipsum at amet esse expedita. Mollitia, laudantium. Corporis nesciunt animi amet  ullam nemo sequi, at perferendis saepe neque quibusdam! Molestiae nulla delectus, mollitia nihil rerum iste ullam hic reprehenderit obcaecati assumenda aut debitis ea fuga ut consectetur perspiciatis animi architecto voluptates quasi ad quaerat quidem necessitatibus! Soluta similique architecto laboriosam repellat velit libero quos voluptatum, harum a fugit inventore dolore. Tempora maiores perferendis quisquam exercitationem, ullam explicabo suscipit perspiciatis aspernatur rem ratione quibusdam mollitia nisi earum repudiandae incidunt.',
+  price: 350,
+  booking: true,
+  location: 'Koh Samui',
+  rooms: 4,
+  rating: 0,
+  photos: [
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png',
+    'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png',
+  ],
+  host: {
+    name: 'Daelum Marx',
+    avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+  },
+}
+
+let reviews = {
+  date: '15 Sept 2023 - 1:01',
+  description:
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
+  rating: 0,
+  author: {
+    name: 'Luke Gator',
+    avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+  },
+}
+
 function House() {
   return (
     <>
@@ -53,7 +91,7 @@ function House() {
             <img
               className="img-fluid col-md-8"
               style={{ width: '100%', height: 'auto' }}
-              src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
+              src={house.photos[0]}
               alt="House One"
             />
           </div>
@@ -63,7 +101,7 @@ function House() {
                 <div className="col mb-3">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
+                    src={house.photos[1]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -71,8 +109,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png
-                                "
+                    src={house.photos[2]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -80,8 +117,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png
-                                "
+                    src={house.photos[3]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -89,8 +125,7 @@ function House() {
                 <div className="col mb-3">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png
-                                "
+                    src={house.photos[4]}
                     className="col-md-2"
                     alt="..."
                   />{' '}
@@ -98,8 +133,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png
-                                "
+                    src={house.photos[5]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -107,8 +141,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png
-                                "
+                    src={house.photos[6]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -116,8 +149,7 @@ function House() {
                 <div className="col mb-3">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_08.png
-                                "
+                    src={house.photos[7]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -125,8 +157,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png
-                                "
+                    src={house.photos[8]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -134,8 +165,7 @@ function House() {
                 <div className="col">
                   <img
                     style={{ width: '100%', height: 'auto' }}
-                    src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png
-                                "
+                    src={house.photos[0]}
                     className="col-md-2"
                     alt="..."
                   />
@@ -150,16 +180,16 @@ function House() {
           <div className="row">
             <div className="col-7 mt-4">
               <div>
-                <h2>Luxury Villa in Chaweng</h2>
+                <h2>{house.title}</h2>
                 <span className="bi bi-geo-alt-fill d-block">
-                  Koh Samui - 4 Bedrooms
+                  {house.location} - {house.rooms} Bedrooms
                 </span>
                 <div className="row">
                   <div className="col col-2">
                     <img
                       className="profile-pic rounded-circle me-3 d-inline-block mt-4"
                       style={{ width: '3rem', height: '3rem' }}
-                      src="https://randomuser.me/api/portraits/men/11.jpg"
+                      src={house.host.avatar}
                     />
                   </div>
                   <div className="col pt-4">
@@ -167,26 +197,11 @@ function House() {
                       <span className="fw-lighter small">Hosted by</span>
                     </div>
                     <div className="row">
-                      <span className="fw-bold">Daelum Marx</span>
+                      <span className="fw-bold">{house.host.name}</span>
                     </div>
                   </div>
                 </div>
-                <p className="mt-3">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut,
-                  reiciendis quis. Nesciunt possimus quos odit velit debitis
-                  fugiat, vero dolorum deleniti totam ipsum at amet esse
-                  expedita. Mollitia, laudantium. Corporis nesciunt animi amet
-                  ullam nemo sequi, at perferendis saepe neque quibusdam!
-                  Molestiae nulla delectus, mollitia nihil rerum iste ullam hic
-                  reprehenderit obcaecati assumenda aut debitis ea fuga ut
-                  consectetur perspiciatis animi architecto voluptates quasi ad
-                  quaerat quidem necessitatibus! Soluta similique architecto
-                  laboriosam repellat velit libero quos voluptatum, harum a
-                  fugit inventore dolore. Tempora maiores perferendis quisquam
-                  exercitationem, ullam explicabo suscipit perspiciatis
-                  aspernatur rem ratione quibusdam mollitia nisi earum
-                  repudiandae incidunt.
-                </p>
+                <p className="mt-3">{house.description}</p>
                 <h4>2 Reviews</h4>
                 <div>
                   {/* <!-- Review section --> */}
@@ -224,27 +239,21 @@ function House() {
                       <img
                         className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
                         style={{ width: '3rem', height: '3rem' }}
-                        src="https://randomuser.me/api/portraits/men/11.jpg"
+                        src={reviews.author.avatar}
                       />
                     </div>
                     <div className="col pt-4">
                       <div className="row">
-                        <span className="fw-lighter small">
-                          15 Sept 2023 - 1:01
-                        </span>
+                        <span className="fw-lighter small">{reviews.date}</span>
                       </div>
                       <div className="row">
-                        <span className="fw-bold">Luke Gator</span>
+                        <span className="fw-bold">{reviews.author.name}</span>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col">
-                      <p className="ms-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Magnam nisi et ipsum natus, ullam optio eos accusantium
-                        sapiente inventore hic.
-                      </p>
+                      <p className="ms-3">{reviews.description}</p>
                     </div>
                   </div>
                 </div>
@@ -254,27 +263,21 @@ function House() {
                       <img
                         className="profile-pic rounded-circle me-3 mt-4 ms-3"
                         style={{ width: '3rem', height: '3rem' }}
-                        src="https://randomuser.me/api/portraits/men/11.jpg"
+                        src={reviews.author.avatar}
                       />
                     </div>
                     <div className="col pt-4">
                       <div className="row">
-                        <span className="fw-lighter small">
-                          15 Sept 2023 - 1:01
-                        </span>
+                        <span className="fw-lighter small">{reviews.date}</span>
                       </div>
                       <div className="row">
-                        <span className="fw-bold">Luke Gator</span>
+                        <span className="fw-bold">{reviews.author.name}</span>
                       </div>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col">
-                      <p className="ms-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Magnam nisi et ipsum natus, ullam optio eos accusantium
-                        sapiente inventore hic.
-                      </p>
+                      <p className="ms-3">{reviews.description}</p>
                     </div>
                   </div>
                 </div>
@@ -283,7 +286,7 @@ function House() {
             {/* <!-- request card --> */}
             <div className="col mt-5">
               <div className="container border rounded shadow">
-                <h5 className="mt-3">$350/night</h5>
+                <h5 className="mt-3">${house.price}/night</h5>
                 <span>2 Reviews</span>
                 <form>
                   <div className="form-floating mb-3">
