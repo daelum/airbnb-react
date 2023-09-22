@@ -2,19 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
-import House from './pages/House'
-import EditHouse from './pages/EditHouse'
-import HouseCreate from './pages/HouseCreate'
-import Profile from './pages/Profile'
-import Houses from './pages/Houses'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+// import House from './pages/House'
+// import EditHouse from './pages/EditHouse'
+// import HouseCreate from './pages/HouseCreate'
+// import Profile from './pages/Profile'
+// import Houses from './pages/Houses'
+// import Login from './pages/Login'
+// import Signup from './pages/Signup'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <House />
+    <App />
   </React.StrictMode>
 )
 

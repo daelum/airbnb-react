@@ -1,11 +1,10 @@
-function Login() {
+import LoginForm from './LoginForm'
+
+export default function Login() {
   return (
     <div
-      style={{
-        backgroundImage: `url(
-          'https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg'
-        )`,
-      }}
+      className="bg-image"
+      style={{ backgroundImage: `url('logo192.png)`, height: '100vh' }}
     >
       {/* <!-- Form container --> */}
       <div className="container position-absolute top-50 start-50 translate-middle w-25 h-50">
@@ -15,38 +14,12 @@ function Login() {
               style={{ width: '150px' }}
               className="card-img-top p-3"
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
+              alt=""
             />
           </div>
-          <div className="container">
-            <form>
-              <label for="email" className="form-label">
-                Email
-              </label>
-              <input type="email" className="d-block form-control" />
-              <label for="password" className="form-label mt-2">
-                Password
-              </label>
-              <input type="password" className="d-block form-control" />
-              <button
-                type="button"
-                className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
-              >
-                Login
-              </button>
-              <div className="container pt-2 pb-2 ps-0">
-                <span>
-                  New to AirBnb?{' '}
-                  <a href="" style={{ textUnderlinePosition: 'below' }}>
-                    Signup
-                  </a>
-                </span>
-              </div>
-            </form>
-          </div>
+          <LoginForm />
         </div>
       </div>
     </div>
   )
 }
-
-export default Login
