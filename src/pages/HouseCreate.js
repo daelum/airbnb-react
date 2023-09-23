@@ -1,4 +1,7 @@
-function HouseCreate() {
+import React from 'react'
+import HouseCreateForm from './HouseCreateForm'
+
+export default function HouseCreate() {
   return (
     <>
       <div className="header">
@@ -32,84 +35,10 @@ function HouseCreate() {
         </nav>
       </div>
       <div className="container">
-        <form>
-          <h1>List a House</h1>
-          <label>Short Title</label>
-          <input className="form-control" type="text" />
-          <label>Description</label>
-          <textarea
-            className="form-control"
-            placeholder="Describe your property.."
-            id="floatingTextarea2"
-            style={{ height: '100px' }}
-          ></textarea>
-          <label>Number of Rooms</label>
-          <input className="form-control" type="number" />
-          <label>Location</label>
-          <select className="form-control">
-            <option>Koh Samui</option>
-            <option>Koh Phangan</option>
-            <option>Mars</option>
-          </select>
-          <label>Price (per night)</label>
-          <input className="form-control" type="number" />
-          <label>Add Photos(up to 9)</label>
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <input
-            className="form-control mb-2"
-            placeholder="http://.."
-            type="text"
-          />
-          <button
-            className="form-control btn btn-success mb-5"
-            type="submit"
-            style={{ width: '100px' }}
-          >
-            Submit
-          </button>
-        </form>
+        <HouseCreateForm />
       </div>
     </>
   )
 }
 
-export default HouseCreate
+
