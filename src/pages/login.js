@@ -1,11 +1,9 @@
+import React from 'react'
 import LoginForm from './LoginForm'
 
 export default function Login() {
   return (
-    <div
-      className="bg-image"
-      style={{ backgroundImage: `url('logo192.png)`, height: '100vh' }}
-    >
+    <div className="bg-image" style={{ backgroundImage: `url('logo192.png)`, height: '100vh' }}>
       {/* <!-- Form container --> */}
       <div className="container position-absolute top-50 start-50 translate-middle w-25 h-50">
         <div className="card border-3 bg-light ms-0">
