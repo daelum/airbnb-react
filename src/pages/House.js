@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
 const house = {
@@ -26,30 +26,61 @@ const house = {
     avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
   },
 }
-
-const reviews = {
-  date: '15 Sept 2023 - 1:01',
-  description:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
-  rating: 0,
-  author: {
-    name: 'Luke Gator',
-    avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+// Reviews Array
+const initialReviews = [
+  {
+    date: '15 Sept 2023 - 1:01',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
+    rating: 0,
+    author: {
+      name: 'Luke Gator',
+      avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+    },
   },
-}
+  {
+    date: '15 Sept 2023 - 1:01',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
+    rating: 0,
+    author: {
+      name: 'Luke Gator',
+      avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+    },
+  },
+]
 
 export default function House() {
   // Gallery
   const [selectedPhoto, setSelectedPhoto] = useState(
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
   )
-  // Create a function addReview that adds a review to the list of reviews
+  // Adding a new review
+  const [reviews, setReviews] = useState(initialReviews)
+  const [addDescription, setAddDescription] = useState('')
+  const [thumbs, setThumbs] = useState(0)
+
   function addReview() {
-    // Add a review to the list of reviews
-    // Trigger the function when clicking the "Submit" button under the "Leave a Review" form
-    // Use the content of the textarea in the form and the "thumb up / down" as the data for the new review
+    const newReview = {
+      date: '15 Sept 2023 - 1:01',
+      description: addDescription,
+      rating: thumbs,
+      author: {
+        name: 'Luke Gator',
+        avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+      },
+    }
+
+    setReviews(reviews.concat([newReview]))
   }
 
+  const submit = (e) => {
+    e.preventDefault()
+    addReview()
+    setAddDescription('')
+  }
+
+  // JSX
   return (
     <>
       {/* <!-- LOGGED OUT --> */}
@@ -224,8 +255,8 @@ export default function House() {
                   </div>
                 </div>
                 <p className="mt-3">{house.description}</p>
-                <h4>2 Reviews</h4>
-                <div>
+                <h4>{reviews.length} Reviews</h4>
+                <form onSubmit={submit}>
                   {/* <!-- Review section --> */}
                   <div className="form-floating mb-3">
                     <textarea
@@ -233,53 +264,75 @@ export default function House() {
                       placeholder="Leave a comment here"
                       id="floatingTextarea2"
                       style={{ height: '100px' }}
+                      onChange={(e) => setAddDescription(e.target.value)}
+                      value={addDescription}
                     ></textarea>
-                    <label for="floatingTextarea2">Leave a review..</label>
+                    <label htmlFor="floatingTextarea2">Leave a review..</label>
                   </div>
                   <div className="row">
                     <div className="col">
-                      <button className="form-control mb-1">
+                      <button
+                        type="button"
+                        className="form-control mb-1"
+                        value="1"
+                        onChange={(e) => setThumbs(e.value)}
+                      >
                         <i className="bi bi-hand-thumbs-up"></i>
                       </button>
                     </div>
                     <div className="col">
-                      <button className="form-control mb-1">
+                      <button
+                        type="button"
+                        className="form-control mb-1"
+                        value="-1"
+                        onChange={(e) => setThumbs(e.value)}
+                      >
                         <i className="bi bi-hand-thumbs-down"></i>
                       </button>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col pt-2">
-                      <button className="btn btn-success pb-2">Submit</button>
+                      <button type="submit" className="btn btn-success pb-2">
+                        Submit
+                      </button>
                     </div>
                   </div>
-                </div>
+                </form>
                 {/* <!-- comment section --> */}
                 <div className="border rounded mt-3 mb-2">
-                  <div className="row">
-                    <div className="col col-2">
-                      <img
-                        className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
-                        style={{ width: '3rem', height: '3rem' }}
-                        src={reviews.author.avatar}
-                      />
-                    </div>
-                    <div className="col pt-4">
+                  {reviews.map((review, i) => (
+                    <div key={i}>
                       <div className="row">
-                        <span className="fw-lighter small">{reviews.date}</span>
+                        <div className="col col-2">
+                          <img
+                            className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
+                            style={{ width: '3rem', height: '3rem' }}
+                            src={review.author.avatar}
+                          />
+                        </div>
+                        <div className="col pt-4">
+                          <div className="row">
+                            <span className="fw-lighter small">
+                              {review.date}
+                            </span>
+                          </div>
+                          <div className="row">
+                            <span className="fw-bold">
+                              {review.author.name}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                       <div className="row">
-                        <span className="fw-bold">{reviews.author.name}</span>
+                        <div className="col">
+                          <p className="ms-3">{review.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <p className="ms-3">{reviews.description}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-                <div className="border mt-3 mb-2">
+                {/* <div className="border mt-3 mb-2">
                   <div className="row">
                     <div className="col col-2 d-inline-block">
                       <img
@@ -302,7 +355,7 @@ export default function House() {
                       <p className="ms-3">{reviews.description}</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* <!-- request card --> */}
