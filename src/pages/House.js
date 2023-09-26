@@ -395,14 +395,14 @@ export default function House() {
               </div>
             </div>
             {/* <!-- request card --> */}
-            {house.booking == true ? (
-              <div>Booking Request Sent! Thank you.</div>
+            {booking == true ? (
+              <div className="col pt-5">Booking Request Sent! Thank you.</div>
             ) : (
               <div className="col mt-5">
                 <div className="container border rounded shadow">
                   <h5 className="mt-3">${house.price}/night</h5>
                   <span>2 Reviews</span>
-                  <form onSubmit={(requestBooking, handleBooking)}>
+                  <form onSubmit={requestBooking}>
                     <div className="form-floating mb-3">
                       <textarea
                         className="form-control"
