@@ -105,7 +105,7 @@ export default function EditHouse() {
             type="text"
           />
           <Link
-            to="./Profile"
+            to="/Profile"
             className="form-control btn btn-success mb-2"
             type="submit"
             style={{ width: '100px' }}
@@ -113,7 +113,7 @@ export default function EditHouse() {
             Save Changes
           </Link>
           <Link
-            to="/"
+            to="/Profile"
             className="form-control btn btn-danger mb-5 d-block "
             type="submit"
             style={{ width: '100px' }}

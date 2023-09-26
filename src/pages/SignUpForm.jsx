@@ -54,13 +54,12 @@ export default function SignUpForm() {
           onChange={(e) => setPassword(e.target.value)}
           className="d-block form-control"
         />
-        <Link
-          to="/Profile"
+        <button
           type="submit"
           className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
         >
           SignUp
-        </Link>
+        </button>
         <div className="container pt-2 pb-2 ps-0">
           <span>
             Already have an account?{' '}
