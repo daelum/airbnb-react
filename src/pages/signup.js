@@ -1,6 +1,5 @@
 import React from 'react'
 import SignUpForm from './SignUpForm'
-import { Link } from 'react-router-dom'
 
 export default function SignUp() {
   return (
@@ -18,6 +17,7 @@ export default function SignUp() {
             <img
               style={{ width: '150px' }}
               className="card-img-top p-3"
+              alt=""
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
             />
           </div>

@@ -1,4 +1,7 @@
-function Houses() {
+import { Link } from 'react-router-dom'
+
+
+export default function Houses() {
   return (
     //   <!-- LOGGED OUT -->
     //  <div class="header">
@@ -17,27 +20,31 @@ function Houses() {
         <nav className="navbar bg-body-tertiary">
           <div className="container">
             <img
+              alt=""
               className="logo"
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
             />
             <form className="d-flex" role="search">
-              <button
+              <Link
+                to="./Profile"
                 className="btn btn-outline-success login-button me-2"
                 type="submit"
               >
                 <img
+                  alt=""
                   className="profile-pic rounded-circle me-1"
                   style={{ width: '1.27rem', height: '1.27rem' }}
                   src="images/IMG_8468.jpg"
                 />
                 Daelum M
-              </button>
-              <button
+              </Link>
+              <Link
+                to="./Login"
                 className="btn btn-outline-success logout-button"
                 type="submit"
               >
                 Logout
-              </button>
+              </Link>
             </form>
           </div>
         </nav>
@@ -130,11 +137,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text fs-6">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Samui &#x2022 4
+                  <i className="bi bi-geo-alt-fill"></i>Koh Samui {'\u2B24'} 4
                   Rooms
                 </p>
                 <h5 className="card-title">Luxury Villa in Chaweng</h5>
@@ -154,11 +161,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan &#x2022 3
+                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan {'\u2B24'} 3
                   Rooms
                 </p>
                 <h5 className="card-title">Private Villa Lotus 1</h5>
@@ -178,11 +185,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Bali &#x2022 3 Rooms
+                  <i className="bi bi-geo-alt-fill"></i>Bali {'\u2B24'} 3 Rooms
                 </p>
                 <h5 className="card-title">Seminyak KuDeTa Beach</h5>
                 <div className="row row-cols-2 pt-2 align-content-center">
@@ -201,11 +208,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Bali &#x2022 5 Rooms
+                  <i className="bi bi-geo-alt-fill"></i>Bali {'\u2B24'} 5 Rooms
                 </p>
                 <h5 className="card-title">5 Bed Villa Canggu</h5>
                 <div className="row row-cols-2 pt-2 align-content-center">
@@ -224,11 +231,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan &#x2022 2
+                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan {'\u2B24'} 2
                   Rooms
                 </p>
                 <h5 className="card-title">Archie Village House</h5>
@@ -248,11 +255,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan &#x2022 6
+                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan {'\u2B24'} 6
                   Rooms
                 </p>
                 <h5 className="card-title">Luxury 6 Beds Villa</h5>
@@ -269,11 +276,11 @@ function Houses() {
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png"
                 className="card-img-top"
-                alt="..."
+                alt=""
               />
               <div className="card-body">
                 <p className="card-text">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan &#x2022 4
+                  <i className="bi bi-geo-alt-fill"></i>Koh Phangan {'\u2B24'} 4
                   Rooms
                 </p>
                 <h5 className="card-title">Luxury Villa in Chaweng</h5>
@@ -290,4 +297,4 @@ function Houses() {
   )
 }
 
-export default Houses
+
