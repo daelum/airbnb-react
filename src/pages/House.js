@@ -1,3 +1,4 @@
+import { Collapse } from 'bootstrap'
 import { useEffect, useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
@@ -56,9 +57,19 @@ export default function House() {
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
   )
   // Adding a new review
+
+  // Create a function addReview that adds a review to the list of reviews   V
+  // Trigger the function when clicking the "Submit" button under the "Leave a Review" form   V
+  // Use the content of the textarea in the form and the "thumb up / down" as the data for the new review     V 1/2- thumb data tbc
+  // As we don't have a connection to the back-end server yet, use any name, avatar and date of your choice for the new review
+  // Test that when creating a review it gets added at the top of the list of reviews on the page  V 1/2 - gets added to bottom
+  // After creating a review, make the "Leave a Review" form disappear, to prevent a user from leaving multiple reviews for the same house.   V
+  // Even better, you can display a "Thank you" message instead.   V
+
   const [reviews, setReviews] = useState(initialReviews)
   const [addDescription, setAddDescription] = useState('')
   const [thumbs, setThumbs] = useState(0)
+  const [submitted, setSubmitted] = useState(false)
 
   function addReview() {
     const newReview = {
@@ -71,13 +82,20 @@ export default function House() {
       },
     }
 
-    setReviews(reviews.concat([newReview]))
+    setReviews(reviews.concat([newReview]).reverse())
   }
 
   const submit = (e) => {
     e.preventDefault()
     addReview()
     setAddDescription('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addReview()
+    setAddDescription('')
+    setSubmitted(true)
   }
 
   // JSX
@@ -256,49 +274,55 @@ export default function House() {
                 </div>
                 <p className="mt-3">{house.description}</p>
                 <h4>{reviews.length} Reviews</h4>
-                <form onSubmit={submit}>
-                  {/* <!-- Review section --> */}
-                  <div className="form-floating mb-3">
-                    <textarea
-                      className="form-control"
-                      placeholder="Leave a comment here"
-                      id="floatingTextarea2"
-                      style={{ height: '100px' }}
-                      onChange={(e) => setAddDescription(e.target.value)}
-                      value={addDescription}
-                    ></textarea>
-                    <label htmlFor="floatingTextarea2">Leave a review..</label>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <button
-                        type="button"
-                        className="form-control mb-1"
-                        value="1"
-                        onChange={(e) => setThumbs(e.value)}
-                      >
-                        <i className="bi bi-hand-thumbs-up"></i>
-                      </button>
+                {/* <!-- Review section --> */}
+                {submitted ? (
+                  <div>Form Submitted! Thank you.</div>
+                ) : (
+                  <form onSubmit={(submit, handleSubmit)}>
+                    <div className="form-floating mb-3">
+                      <textarea
+                        className="form-control"
+                        placeholder="Leave a comment here"
+                        id="floatingTextarea2"
+                        style={{ height: '100px' }}
+                        onChange={(e) => setAddDescription(e.target.value)}
+                        value={addDescription}
+                      ></textarea>
+                      <label htmlFor="floatingTextarea2">
+                        Leave a review..
+                      </label>
                     </div>
-                    <div className="col">
-                      <button
-                        type="button"
-                        className="form-control mb-1"
-                        value="-1"
-                        onChange={(e) => setThumbs(e.value)}
-                      >
-                        <i className="bi bi-hand-thumbs-down"></i>
-                      </button>
+                    <div className="row">
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="form-control mb-1"
+                          value="1"
+                          onChange={(e) => setThumbs(e.value)}
+                        >
+                          <i className="bi bi-hand-thumbs-up"></i>
+                        </button>
+                      </div>
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="form-control mb-1"
+                          value="-1"
+                          onChange={(e) => setThumbs(e.value)}
+                        >
+                          <i className="bi bi-hand-thumbs-down"></i>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col pt-2">
-                      <button type="submit" className="btn btn-success pb-2">
-                        Submit
-                      </button>
+                    <div className="row">
+                      <div className="col pt-2">
+                        <button type="submit" className="btn btn-success pb-2">
+                          Submit
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                )}
                 {/* <!-- comment section --> */}
                 <div className="border rounded mt-3 mb-2">
                   {reviews.map((review, i) => (
