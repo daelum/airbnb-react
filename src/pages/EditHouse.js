@@ -112,13 +112,14 @@ export default function EditHouse() {
           >
             Save Changes
           </Link>
-          <button
+          <Link
+            to="/"
             className="form-control btn btn-danger mb-5 d-block "
             type="submit"
             style={{ width: '100px' }}
           >
             Delete House
-          </button>
+          </Link>
         </form>
       </div>
     </>

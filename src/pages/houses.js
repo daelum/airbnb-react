@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function Houses() {
+  const navigate = useNavigate()
+
+  const navigateToHouse = () => {
+    navigate('/House')
+  }
+
   return (
     //   <!-- LOGGED OUT -->
     //  <div class="header">
@@ -26,7 +32,7 @@ export default function Houses() {
             />
             <form className="d-flex" role="search">
               <Link
-                to="./Profile"
+                to="/Profile"
                 className="btn btn-outline-success login-button me-2"
                 type="submit"
               >
@@ -39,7 +45,7 @@ export default function Houses() {
                 Daelum M
               </Link>
               <Link
-                to="./Login"
+                to="/Login"
                 className="btn btn-outline-success logout-button"
                 type="submit"
               >
@@ -133,7 +139,7 @@ export default function Houses() {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-1">
           {/* <!-- first card --> */}
           <div className="col">
-            <div className="card shadow">
+            <div onClick={navigateToHouse} className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
                 className="card-img-top"
@@ -156,7 +162,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Second Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
@@ -180,7 +186,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Third Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png"
@@ -203,7 +209,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Forth Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png"
@@ -226,7 +232,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Fifth Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png"
@@ -250,7 +256,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Sixth Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png"
@@ -271,7 +277,7 @@ export default function Houses() {
             </div>
           </div>
           {/* <!-- Seventh Card --> */}
-          <div className="col">
+          <div onClick={navigateToHouse} className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png"

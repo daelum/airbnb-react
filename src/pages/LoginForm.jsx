@@ -35,7 +35,7 @@ export default function LoginForm() {
           className="d-block form-control"
         />
         <Link
-          to="./Profile"
+          to="/Profile"
           type="submit"
           className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
         >
@@ -44,7 +44,7 @@ export default function LoginForm() {
         <div className="container pt-2 pb-2 ps-0">
           <span>
             New to AirBnb?{' '}
-            <Link to="./SignUp" style={{ textUnderlinePosition: 'below' }}>
+            <Link to="/SignUp" style={{ textUnderlinePosition: 'below' }}>
               SignUp
             </Link>
           </span>

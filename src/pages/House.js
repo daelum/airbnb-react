@@ -1,5 +1,5 @@
-import { Collapse } from 'bootstrap'
-import { useEffect, useState } from 'react'
+// import { Collapse } from 'bootstrap'
+import { useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
 const house = {
@@ -333,6 +333,7 @@ export default function House() {
                       <div className="row">
                         <div className="col col-2">
                           <img
+                            alt=""
                             className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
                             style={{ width: '3rem', height: '3rem' }}
                             src={review.author.avatar}
