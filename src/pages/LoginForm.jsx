@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function LoginForm() {
   const [email, setEmail] = useState('')
@@ -42,12 +43,9 @@ export default function LoginForm() {
         <div className="container pt-2 pb-2 ps-0">
           <span>
             New to AirBnb?{' '}
-            <a
-              href="https://www.airbnb.com/signup_login"
-              style={{ textUnderlinePosition: 'below' }}
-            >
+            <Link to="./SignUp" style={{ textUnderlinePosition: 'below' }}>
               SignUp
-            </a>
+            </Link>
           </span>
         </div>
       </div>

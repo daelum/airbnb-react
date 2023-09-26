@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SignUpForm() {
   const [name, setName] = useState('')
@@ -62,13 +63,13 @@ export default function SignUpForm() {
         <div className="container pt-2 pb-2 ps-0">
           <span>
             Already have an account?{' '}
-            <a
-              href=""
+            <Link
+              href="./Login"
               className="link-success"
               style={{ TextUnderlinePosition: 'below' }}
             >
               Login
-            </a>
+            </Link>
           </span>
         </div>
       </div>
