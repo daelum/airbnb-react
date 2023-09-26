@@ -7,7 +7,7 @@ const house = {
   description:
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, reiciendis quis. Nesciunt possimus quos odit velit debitis fugiat, vero dolorum deleniti totam ipsum at amet esse expedita. Mollitia, laudantium. Corporis nesciunt animi amet  ullam nemo sequi, at perferendis saepe neque quibusdam! Molestiae nulla delectus, mollitia nihil rerum iste ullam hic reprehenderit obcaecati assumenda aut debitis ea fuga ut consectetur perspiciatis animi architecto voluptates quasi ad quaerat quidem necessitatibus! Soluta similique architecto laboriosam repellat velit libero quos voluptatum, harum a fugit inventore dolore. Tempora maiores perferendis quisquam exercitationem, ullam explicabo suscipit perspiciatis aspernatur rem ratione quibusdam mollitia nisi earum repudiandae incidunt.',
   price: 350,
-  booking: true,
+  booking: false,
   location: 'Koh Samui',
   rooms: 4,
   rating: 0,
@@ -56,8 +56,7 @@ export default function House() {
   const [selectedPhoto, setSelectedPhoto] = useState(
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
   )
-  // Adding a new review
-
+  // FUNCTIONS
   // Create a function addReview that adds a review to the list of reviews   V
   // Trigger the function when clicking the "Submit" button under the "Leave a Review" form   V
   // Use the content of the textarea in the form and the "thumb up / down" as the data for the new review     V 1/2- thumb data tbc
@@ -96,6 +95,15 @@ export default function House() {
     addReview()
     setAddDescription('')
     setSubmitted(true)
+  }
+  // Bookings
+  // Create a function requestBooking that gets triggered when submitting the "Request Booking" form.
+  // The function should change the value of the house.booking property to true
+  // If the value is true, show the "Thank you for your enquiry" message box that you previously created in HTML, instead of the form.
+  const [booking, setBooking] = useState(false)
+  const requestBooking = (e) => {
+    e.preventDefault()
+    setBooking(true)
   }
 
   // JSX
@@ -387,25 +395,29 @@ export default function House() {
               </div>
             </div>
             {/* <!-- request card --> */}
-            <div className="col mt-5">
-              <div className="container border rounded shadow">
-                <h5 className="mt-3">${house.price}/night</h5>
-                <span>2 Reviews</span>
-                <form>
-                  <div className="form-floating mb-3">
-                    <textarea
-                      className="form-control"
-                      placeholder="Send the host a message"
-                      id="floatingTextarea2"
-                      style={{ height: '100px' }}
-                    ></textarea>
-                  </div>
-                  <button className="btn btn-success mb-3 pb-2">
-                    Request Booking
-                  </button>
-                </form>
+            {house.booking == true ? (
+              <div>Booking Request Sent! Thank you.</div>
+            ) : (
+              <div className="col mt-5">
+                <div className="container border rounded shadow">
+                  <h5 className="mt-3">${house.price}/night</h5>
+                  <span>2 Reviews</span>
+                  <form onSubmit={(requestBooking, handleBooking)}>
+                    <div className="form-floating mb-3">
+                      <textarea
+                        className="form-control"
+                        placeholder="Send the host a message"
+                        id="floatingTextarea2"
+                        style={{ height: '100px' }}
+                      ></textarea>
+                    </div>
+                    <button className="btn btn-success mb-3 pb-2">
+                      Request Booking
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
