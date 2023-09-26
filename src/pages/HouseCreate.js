@@ -1,6 +1,4 @@
-import React from 'react'
 import HouseCreateForm from './HouseCreateForm'
-import { Link } from "react-router-dom"
 
 export default function HouseCreate() {
   return (
@@ -9,6 +7,7 @@ export default function HouseCreate() {
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
             <img
+              alt=""
               className="logo"
               style={{ width: '7rem', height: 'auto' }}
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
@@ -19,6 +18,7 @@ export default function HouseCreate() {
                 type="submit"
               >
                 <img
+                  alt=""
                   className="profile-pic rounded-circle me-1"
                   style={{ width: '1.27rem', height: '1.27rem' }}
                   src="images/IMG_8468.jpg"

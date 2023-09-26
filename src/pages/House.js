@@ -38,7 +38,7 @@ let reviews = {
   },
 }
 
-function House() {
+export default function House() {
   // Gallery
   // Create a state variable selectedPhoto that holds the photo to show in the large section of the gallery (the "selected" photo) and its function setSelectedPhoto.
   // Connect the function to each of the 9 thumbnails, so that clicking a thumbnail changes the large photo.
@@ -66,6 +66,7 @@ function House() {
           <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
               <img
+                alt=""
                 className="logo"
                 style={{ width: '7rem', height: 'auto' }}
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
@@ -76,6 +77,7 @@ function House() {
                   type="submit"
                 >
                   <img
+                    alt=""
                     className="profile-pic rounded-circle me-1"
                     style={{ width: '1.27rem', height: '1.27rem' }}
                     src="images/IMG_8468.jpg"
@@ -205,6 +207,7 @@ function House() {
                 <div className="row">
                   <div className="col col-2">
                     <img
+                      alt=""
                       className="profile-pic rounded-circle me-3 d-inline-block mt-4"
                       style={{ width: '3rem', height: '3rem' }}
                       src={house.host.avatar}
@@ -255,6 +258,7 @@ function House() {
                   <div className="row">
                     <div className="col col-2">
                       <img
+                        alt=""
                         className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
                         style={{ width: '3rem', height: '3rem' }}
                         src={reviews.author.avatar}
@@ -279,6 +283,7 @@ function House() {
                   <div className="row">
                     <div className="col col-2 d-inline-block">
                       <img
+                        alt=""
                         className="profile-pic rounded-circle me-3 mt-4 ms-3"
                         style={{ width: '3rem', height: '3rem' }}
                         src={reviews.author.avatar}
@@ -328,4 +333,4 @@ function House() {
   )
 }
 
-export default House
+

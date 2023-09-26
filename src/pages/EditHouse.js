@@ -1,10 +1,13 @@
-function EditHouse() {
+import { Link } from 'react-router-dom'
+
+export default function EditHouse() {
   return (
     <>
       <div className="header">
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
             <img
+              alt=""
               className="logo"
               style={{ width: '7rem', height: 'auto' }}
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
@@ -15,18 +18,20 @@ function EditHouse() {
                 type="submit"
               >
                 <img
+                  alt=""
                   className="profile-pic rounded-circle me-1"
                   style={{ width: '1.27rem', height: '1.27rem' }}
                   src="images/IMG_8468.jpg"
                 />
                 Daelum M
               </button>
-              <button
+              <Link
+                to="./Login"
                 className="btn btn-outline-success logout-button"
                 type="submit"
               >
                 Logout
-              </button>
+              </Link>
             </form>
           </div>
         </nav>
@@ -99,13 +104,14 @@ function EditHouse() {
             placeholder="http://.."
             type="text"
           />
-          <button
+          <Link
+            to="./Profile"
             className="form-control btn btn-success mb-2"
             type="submit"
             style={{ width: '100px' }}
           >
             Save Changes
-          </button>
+          </Link>
           <button
             className="form-control btn btn-danger mb-5 d-block "
             type="submit"
@@ -119,4 +125,4 @@ function EditHouse() {
   )
 }
 
-export default EditHouse
+
