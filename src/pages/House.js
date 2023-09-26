@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { Collapse } from 'bootstrap'
+import { useEffect, useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
-let house = {
+const house = {
   title: 'Luxury Villa in Chaweng',
   description:
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, reiciendis quis. Nesciunt possimus quos odit velit debitis fugiat, vero dolorum deleniti totam ipsum at amet esse expedita. Mollitia, laudantium. Corporis nesciunt animi amet  ullam nemo sequi, at perferendis saepe neque quibusdam! Molestiae nulla delectus, mollitia nihil rerum iste ullam hic reprehenderit obcaecati assumenda aut debitis ea fuga ut consectetur perspiciatis animi architecto voluptates quasi ad quaerat quidem necessitatibus! Soluta similique architecto laboriosam repellat velit libero quos voluptatum, harum a fugit inventore dolore. Tempora maiores perferendis quisquam exercitationem, ullam explicabo suscipit perspiciatis aspernatur rem ratione quibusdam mollitia nisi earum repudiandae incidunt.',
@@ -26,26 +27,78 @@ let house = {
     avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
   },
 }
-
-let reviews = {
-  date: '15 Sept 2023 - 1:01',
-  description:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
-  rating: 0,
-  author: {
-    name: 'Luke Gator',
-    avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+// Reviews Array
+const initialReviews = [
+  {
+    date: '15 Sept 2023 - 1:01',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
+    rating: 0,
+    author: {
+      name: 'Luke Gator',
+      avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+    },
   },
-}
+  {
+    date: '15 Sept 2023 - 1:01',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi et ipsum natus, ullam optio eos accusantium sapiente inventore hic.',
+    rating: 0,
+    author: {
+      name: 'Luke Gator',
+      avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+    },
+  },
+]
 
-function House() {
+export default function House() {
   // Gallery
-  // Create a state variable selectedPhoto that holds the photo to show in the large section of the gallery (the "selected" photo) and its function setSelectedPhoto.
-  // Connect the function to each of the 9 thumbnails, so that clicking a thumbnail changes the large photo.
   const [selectedPhoto, setSelectedPhoto] = useState(
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
   )
+  // Adding a new review
 
+  // Create a function addReview that adds a review to the list of reviews   V
+  // Trigger the function when clicking the "Submit" button under the "Leave a Review" form   V
+  // Use the content of the textarea in the form and the "thumb up / down" as the data for the new review     V 1/2- thumb data tbc
+  // As we don't have a connection to the back-end server yet, use any name, avatar and date of your choice for the new review
+  // Test that when creating a review it gets added at the top of the list of reviews on the page  V 1/2 - gets added to bottom
+  // After creating a review, make the "Leave a Review" form disappear, to prevent a user from leaving multiple reviews for the same house.   V
+  // Even better, you can display a "Thank you" message instead.   V
+
+  const [reviews, setReviews] = useState(initialReviews)
+  const [addDescription, setAddDescription] = useState('')
+  const [thumbs, setThumbs] = useState(0)
+  const [submitted, setSubmitted] = useState(false)
+
+  function addReview() {
+    const newReview = {
+      date: '15 Sept 2023 - 1:01',
+      description: addDescription,
+      rating: thumbs,
+      author: {
+        name: 'Luke Gator',
+        avatar: 'https://randomuser.me/api/portraits/men/11.jpg',
+      },
+    }
+
+    setReviews(reviews.concat([newReview]).reverse())
+  }
+
+  const submit = (e) => {
+    e.preventDefault()
+    addReview()
+    setAddDescription('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    addReview()
+    setAddDescription('')
+    setSubmitted(true)
+  }
+
+  // JSX
   return (
     <>
       {/* <!-- LOGGED OUT --> */}
@@ -220,62 +273,90 @@ function House() {
                   </div>
                 </div>
                 <p className="mt-3">{house.description}</p>
-                <h4>2 Reviews</h4>
-                <div>
-                  {/* <!-- Review section --> */}
-                  <div className="form-floating mb-3">
-                    <textarea
-                      className="form-control"
-                      placeholder="Leave a comment here"
-                      id="floatingTextarea2"
-                      style={{ height: '100px' }}
-                    ></textarea>
-                    <label for="floatingTextarea2">Leave a review..</label>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <button className="form-control mb-1">
-                        <i className="bi bi-hand-thumbs-up"></i>
-                      </button>
+                <h4>{reviews.length} Reviews</h4>
+                {/* <!-- Review section --> */}
+                {submitted ? (
+                  <div>Form Submitted! Thank you.</div>
+                ) : (
+                  <form onSubmit={(submit, handleSubmit)}>
+                    <div className="form-floating mb-3">
+                      <textarea
+                        className="form-control"
+                        placeholder="Leave a comment here"
+                        id="floatingTextarea2"
+                        style={{ height: '100px' }}
+                        onChange={(e) => setAddDescription(e.target.value)}
+                        value={addDescription}
+                      ></textarea>
+                      <label htmlFor="floatingTextarea2">
+                        Leave a review..
+                      </label>
                     </div>
-                    <div className="col">
-                      <button className="form-control mb-1">
-                        <i className="bi bi-hand-thumbs-down"></i>
-                      </button>
+                    <div className="row">
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="form-control mb-1"
+                          value="1"
+                          onChange={(e) => setThumbs(e.value)}
+                        >
+                          <i className="bi bi-hand-thumbs-up"></i>
+                        </button>
+                      </div>
+                      <div className="col">
+                        <button
+                          type="button"
+                          className="form-control mb-1"
+                          value="-1"
+                          onChange={(e) => setThumbs(e.value)}
+                        >
+                          <i className="bi bi-hand-thumbs-down"></i>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col pt-2">
-                      <button className="btn btn-success pb-2">Submit</button>
+                    <div className="row">
+                      <div className="col pt-2">
+                        <button type="submit" className="btn btn-success pb-2">
+                          Submit
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </form>
+                )}
                 {/* <!-- comment section --> */}
                 <div className="border rounded mt-3 mb-2">
-                  <div className="row">
-                    <div className="col col-2">
-                      <img
-                        className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
-                        style={{ width: '3rem', height: '3rem' }}
-                        src={reviews.author.avatar}
-                      />
-                    </div>
-                    <div className="col pt-4">
+                  {reviews.map((review, i) => (
+                    <div key={i}>
                       <div className="row">
-                        <span className="fw-lighter small">{reviews.date}</span>
+                        <div className="col col-2">
+                          <img
+                            className="profile-pic rounded-circle me-3 d-inline-block mt-4 ms-3"
+                            style={{ width: '3rem', height: '3rem' }}
+                            src={review.author.avatar}
+                          />
+                        </div>
+                        <div className="col pt-4">
+                          <div className="row">
+                            <span className="fw-lighter small">
+                              {review.date}
+                            </span>
+                          </div>
+                          <div className="row">
+                            <span className="fw-bold">
+                              {review.author.name}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                       <div className="row">
-                        <span className="fw-bold">{reviews.author.name}</span>
+                        <div className="col">
+                          <p className="ms-3">{review.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col">
-                      <p className="ms-3">{reviews.description}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-                <div className="border mt-3 mb-2">
+                {/* <div className="border mt-3 mb-2">
                   <div className="row">
                     <div className="col col-2 d-inline-block">
                       <img
@@ -298,7 +379,7 @@ function House() {
                       <p className="ms-3">{reviews.description}</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* <!-- request card --> */}
@@ -327,5 +408,3 @@ function House() {
     </>
   )
 }
-
-export default House

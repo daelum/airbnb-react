@@ -9,20 +9,17 @@ import HouseCreate from './pages/HouseCreate'
 // import SignUp from './pages/SignUp'
 
 export default function App() {
-
-
-
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="" element={<Houses />} />
-          <Route path="" element={<House />} />
-          <Route path="" element={<HouseCreate />} />
-          <Route path="" element={<EditHouse />} />
-          <Route path="" element={<Profile />} />
-          <Route path="" element={<Login />} />
-          <Route path="" element={<SignUp />} />
+        <Route path="" element={<Houses />} />
+        <Route path="" element={<House />} />
+        <Route path="" element={<HouseCreate />} />
+        <Route path="" element={<EditHouse />} />
+        <Route path="" element={<Profile />} />
+        <Route path="" element={<Login />} />
+        <Route path="" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
-  ) 
+  )
 }
