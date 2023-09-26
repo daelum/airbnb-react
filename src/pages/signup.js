@@ -4,6 +4,7 @@ import SignUpForm from './SignUpForm'
 export default function SignUp() {
   return (
     <div
+      className='vh-100 d-flex align-items-center'
       style={{
         backgroundImage: `url(
           'https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg'
@@ -11,7 +12,7 @@ export default function SignUp() {
       }}
     >
       {/* <!-- card container --> */}
-      <div className="container position-absolute top-50 start-50 translate-middle w-50 h-50">
+      <div className="container w-50">
         <div className="card border-3 bg-light ms-0">
           <div className="container d-grid justify-content-center align-content-center">
             <img

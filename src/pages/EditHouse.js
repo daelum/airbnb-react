@@ -26,7 +26,7 @@ export default function EditHouse() {
                 Daelum M
               </button>
               <Link
-                to="./Login"
+                to="/Login"
                 className="btn btn-outline-success logout-button"
                 type="submit"
               >
