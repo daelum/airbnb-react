@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  // const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const formInfo = { email, password }
     console.log(formInfo)
   }
+  // const navigateToProfile = () => {
+  //   navigate('/Profile')
+  // }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="container">
+    <div className="container">
+      <form onSubmit={handleSubmit}>
         <label for="email" className="form-label">
           Email
         </label>
@@ -34,22 +39,24 @@ export default function LoginForm() {
           value={password}
           className="d-block form-control"
         />
-        <Link
-          to="./Profile"
+        <button
+          // onClick={navigateToProfile}
+          to="/Profile"
           type="submit"
           className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
         >
           Login
-        </Link>
-        <div className="container pt-2 pb-2 ps-0">
-          <span>
-            New to AirBnb?{' '}
-            <Link to="./SignUp" style={{ textUnderlinePosition: 'below' }}>
-              SignUp
-            </Link>
-          </span>
-        </div>
+        </button>
+      </form>
+
+      <div className="container pt-2 pb-2 ps-0">
+        <span>
+          New to AirBnb?{' '}
+          <Link to="/SignUp" style={{ textUnderlinePosition: 'below' }}>
+            SignUp
+          </Link>
+        </span>
       </div>
-    </form>
+    </div>
   )
 }

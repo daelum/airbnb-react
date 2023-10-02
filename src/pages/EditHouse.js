@@ -26,7 +26,7 @@ export default function EditHouse() {
                 Daelum M
               </button>
               <Link
-                to="./Login"
+                to="/Login"
                 className="btn btn-outline-success logout-button"
                 type="submit"
               >
@@ -105,20 +105,21 @@ export default function EditHouse() {
             type="text"
           />
           <Link
-            to="./Profile"
+            to="/Profile"
             className="form-control btn btn-success mb-2"
             type="submit"
             style={{ width: '100px' }}
           >
             Save Changes
           </Link>
-          <button
+          <Link
+            to="/Profile"
             className="form-control btn btn-danger mb-5 d-block "
             type="submit"
             style={{ width: '100px' }}
           >
             Delete House
-          </button>
+          </Link>
         </form>
       </div>
     </>

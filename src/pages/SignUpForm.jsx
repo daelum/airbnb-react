@@ -64,7 +64,7 @@ export default function SignUpForm() {
           <span>
             Already have an account?{' '}
             <Link
-              href="./Login"
+              to="/Login"
               className="link-success"
               style={{ TextUnderlinePosition: 'below' }}
             >
