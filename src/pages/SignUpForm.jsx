@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { formatWithCursor } from 'prettier'
 
 export default function SignUpForm() {
   const [name, setName] = useState('')
@@ -7,10 +9,19 @@ export default function SignUpForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formInfo = { name, picture, email, password }
     console.log(formInfo)
+    try {
+      const response = await axios.post(
+        'http://localhost:4000/signup',
+        formInfo
+      )
+      console.log(response)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
