@@ -1,7 +1,69 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
+const houses = [
+  {
+    image:
+      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
+    title: 'Luxury Villa in Chaweng',
+    price: 350,
+    location: 'Koh Samui',
+    rooms: 3,
+    reviews: 2,
+    score: 1,
+  },
+  {
+    image:
+      'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
+    title: 'Luxury Villa in Chaweng',
+    price: 350,
+    location: 'Koh Samui',
+    rooms: 3,
+    reviews: 2,
+    score: 1,
+  },
+]
+
+// const [houses, setHouses] = useState([])
 
 export default function Houses() {
+  // Search
+  // In the Houses page use one of the 2 techniques to
+  // "submit forms with JavaScript" to extract the 5 values of the
+  // search form: location, rooms, price, sort and name when submitting the form.
+  // Store the 5 values in a single object variable.
+  // const [search, setSearch] = useState('')
+  // console.log(search)
+  // function searchForm(e) {
+  //   e.preventDefault()
+  //   if (
+  //     houses.location == search ||
+  //     houses.rooms == search ||
+  //     houses.price == search ||
+  //     houses.title
+  //   ) {
+  //   }
+  // }
+
+  const [location, setLocation] = useState('')
+  const [rooms, setRooms] = useState('')
+  const [price, setPrice] = useState('')
+  const [title, setTitle] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    // send all data to the API
+    const searchData = {
+      location,
+      rooms,
+      price,
+      title,
+    }
+
+    console.log({ searchData })
+  }
+
   return (
     //   <!-- LOGGED OUT -->
     //  <div class="header">
@@ -51,7 +113,7 @@ export default function Houses() {
       </div>
       {/* <!-- Nav bar wrap --> */}
       <div className="navbar" style={{ backgroundColor: '#ce010113' }}>
-        <form className="container">
+        <form className="container" onSubmit={handleSubmit}>
           <nav className="navbar pb-0 d-inline-block">
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-auto">
               <div className="col">
@@ -60,7 +122,10 @@ export default function Houses() {
                     className="input-group-text bi bi-geo-alt-fill"
                     id="basic-addon1"
                   ></span>
-                  <select className="form-select">
+                  <select
+                    onSubmit={(e) => setLocation(e.target.value)}
+                    className="form-select"
+                  >
                     <option selected>Any Location</option>
                     <option>Koh Phangan</option>
                     <option>Koh Samui</option>
@@ -74,7 +139,10 @@ export default function Houses() {
                     className="input-group-text bi bi-house-fill"
                     id="basic-addon1"
                   ></span>
-                  <select className="form-select">
+                  <select
+                    onSubmit={(e) => setRooms(e.target.value)}
+                    className="form-select"
+                  >
                     <option selected>Any Rooms</option>
                     <option>1</option>
                     <option>2</option>
@@ -90,7 +158,11 @@ export default function Houses() {
                     className="input-group-text bi bi-currency-dollar"
                     id="basic-addon1"
                   ></span>
-                  <input className="max-price form-select" type="number" />
+                  <input
+                    onSubmit={(e) => setPrice(e.target.value)}
+                    className="max-price form-select"
+                    type="number"
+                  />
                 </div>
               </div>
               <div className="col">
@@ -108,6 +180,7 @@ export default function Houses() {
               <div className="col">
                 <div className="input-group mb-3">
                   <input
+                    onSubmit={(e) => setTitle(e.target.value)}
                     className="form-control"
                     type="search"
                     placeholder="House name.."
@@ -132,31 +205,29 @@ export default function Houses() {
       <div className="container grid text-right">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-1">
           {/* <!-- first card --> */}
-          <div className="col">
-            <div className="card shadow">
-              <img
-                src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
-                className="card-img-top"
-                alt=""
-              />
-              <div className="card-body">
-                <p className="card-text fs-6">
-                  <i className="bi bi-geo-alt-fill"></i>Koh Samui {'\u2B24'} 4
-                  Rooms
-                </p>
-                <h5 className="card-title">Luxury Villa in Chaweng</h5>
-                <div className="row row-cols-2 pt-2 align-content-center">
-                  <p className="col card-text">
-                    <i className="bi bi-hand-thumbs-up-fill text-success"></i>3
-                    Reviews
+          {houses.map((element, i) => (
+            <div className="col" key={i}>
+              <div className="card shadow">
+                <img src={element.image} className="card-img-top" alt="" />
+                <div className="card-body">
+                  <p className="card-text fs-6">
+                    <i className="bi bi-geo-alt-fill"></i>
+                    {element.location} {'\u2B24'} {element.rooms} Rooms
                   </p>
-                  <p className="col card-text fs-6">$350/night</p>
+                  <h5 className="card-title">{element.title}</h5>
+                  <div className="row row-cols-2 pt-2 align-content-center">
+                    <p className="col card-text">
+                      <i className="bi bi-hand-thumbs-up-fill text-success"></i>
+                      {element.reviews} Reviews
+                    </p>
+                    <p className="col card-text fs-6">${element.price}/night</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
           {/* <!-- Second Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_02.png"
@@ -178,9 +249,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Third Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_03.png"
@@ -201,9 +272,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Forth Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_04.png"
@@ -224,9 +295,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Fifth Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_05.png"
@@ -248,9 +319,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Sixth Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_06.png"
@@ -269,9 +340,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Seventh Card --> */}
-          <div className="col">
+          {/* <div className="col">
             <div className="card shadow">
               <img
                 src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_07.png"
@@ -290,11 +361,9 @@ export default function Houses() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   )
 }
-
-
