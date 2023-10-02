@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
+//comment
 // const [houses, setHouses] = useState([])
 
 export default function Houses() {
