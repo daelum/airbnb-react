@@ -13,8 +13,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Houses" element={<Houses />} />
-        <Route path="/" element={<House />} />
+        <Route path="/" element={<Houses />} />
+        <Route path="/House" element={<House />} />
         <Route path="/HouseCreate" element={<HouseCreate />} />
         <Route path="/EditHouse" element={<EditHouse />} />
         <Route path="/Profile" element={<Profile />} />
