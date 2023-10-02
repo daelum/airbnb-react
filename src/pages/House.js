@@ -1,4 +1,4 @@
-// import { Collapse } from 'bootstrap'
+// import { Collapse } from 'bootstrap!'
 import { useState } from 'react'
 
 // In the House page, create an object house with all the properties of a house:
