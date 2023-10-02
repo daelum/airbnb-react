@@ -3,7 +3,12 @@ import LoginForm from './LoginForm'
 
 export default function Login() {
   return (
-    <div className="bg-image d-flex vh-100 align-items-center " style={{ backgroundImage: `url('https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg')` }}>
+    <div
+      className="bg-image d-flex vh-100 align-items-center "
+      style={{
+        backgroundImage: `url('https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399115/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/thailand.jpg')`,
+      }}
+    >
       {/* <!-- Form container --> */}
       <div className="container w-25">
         <div className="card border-3 bg-light ms-0">
