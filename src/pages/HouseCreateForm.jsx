@@ -6,14 +6,17 @@ export default function HouseCreateForm() {
   const [rooms, setRooms] = useState('')
   const [location, setLocation] = useState('')
   const [price, setPrice] = useState('')
-  const [photo, setPhoto] = useState('')
+  const [photos, setPhotos] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const formInfo = { title, description, rooms, location, price, photo }
+    const formInfo = { title, description, rooms, location, price, photos }
     console.log(formInfo)
   }
 
+  const handlePhotos = (e) => {
+    return setPhotos([photos, e.target.files])
+  }
   return (
     <form onSubmit={handleSubmit}>
       <h1>List a House</h1>
@@ -64,68 +67,60 @@ export default function HouseCreateForm() {
         placeholder="$"
         className="form-control"
       />
-      <label>Add Photos (Min 1 required, max 9)</label>
+      <label>Add Photos (Min 2 required, max 9)</label>
       <input
-        type="text"
+        type="file"
         required
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        required
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="text"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
+        type="file"
+        onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
