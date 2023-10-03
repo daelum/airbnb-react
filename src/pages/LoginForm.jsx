@@ -1,20 +1,35 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e) => {
+  const navigateToProfile = () => {
+    navigate('/Profile')
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formInfo = { email, password }
-    console.log(formInfo)
+    try {
+      const response = await axios.post('http://localhost:4000/login', formInfo)
+      console.log(response)
+      if (response.data !== 'Invalid Email/Password!') {
+        console.log('yahahah')
+        navigateToProfile()
+      } else {
+        console.log(response.data)
+        setErrorMessage(response.data)
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
-  // const navigateToProfile = () => {
-  //   navigate('/Profile')
-  // }
 
   return (
     <div className="container">
@@ -39,6 +54,14 @@ export default function LoginForm() {
           value={password}
           className="d-block form-control"
         />
+        {errorMessage ? (
+          <div
+            className="text mt-2 ms-2"
+            style={{ color: 'red', fontSize: '13px' }}
+          >
+            {errorMessage}
+          </div>
+        ) : null}
         <button
           // onClick={navigateToProfile}
           to="/Profile"
