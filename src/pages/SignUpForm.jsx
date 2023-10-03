@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { formatWithCursor } from 'prettier'
+// import { formatWithCursor } from 'prettier'
 
 export default function SignUpForm() {
   const [name, setName] = useState('')
