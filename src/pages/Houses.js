@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import Header from './Header'
+import React from 'react'
 
 //comment 1
 // const [houses, setHouses] = useState([])
@@ -67,7 +69,7 @@ export default function Houses() {
     //     </nav>
     // </div>
     <div>
-      <div className="header">
+      {/* <div className="header">
         <nav className="navbar bg-body-tertiary">
           <div className="container">
             <img
@@ -99,6 +101,9 @@ export default function Houses() {
             </form>
           </div>
         </nav>
+      </div> */}
+      <div>
+        <Header />
       </div>
       {/* <!-- Nav bar wrap --> */}
       <div className="navbar" style={{ backgroundColor: '#ce010113' }}>

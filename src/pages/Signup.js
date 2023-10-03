@@ -1,6 +1,5 @@
 import React from 'react'
 import SignUpForm from './SignUpForm'
-import axios from 'axios'
 
 export default function SignUp() {
   return (

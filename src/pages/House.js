@@ -396,7 +396,7 @@ export default function House() {
               </div>
             </div>
             {/* <!-- request card --> */}
-            {booking == true ? (
+            {booking === true ? (
               <div className="col pt-5">Booking Request Sent! Thank you.</div>
             ) : (
               <div className="col mt-5">
