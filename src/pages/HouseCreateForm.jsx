@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+axios.defaults.withCredentials = true
 
 export default function HouseCreateForm() {
   const [title, setTitle] = useState('')
@@ -8,10 +10,19 @@ export default function HouseCreateForm() {
   const [price, setPrice] = useState('')
   const [photos, setPhotos] = useState([])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formInfo = { title, description, rooms, location, price, photos }
     console.log(formInfo)
+    try {
+      const response = await axios.post(
+        'http://localhost:4000/houses',
+        formInfo
+      )
+      console.log(response)
+    } catch (err) {
+      throw err
+    }
   }
 
   const handlePhotos = (e) => {
