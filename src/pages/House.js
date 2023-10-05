@@ -1,5 +1,7 @@
 // import { Collapse } from 'bootstrap!'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 // In the House page, create an object house with all the properties of a house:
 const house = {
@@ -52,6 +54,22 @@ const initialReviews = [
 ]
 
 export default function House() {
+  // House
+  const [house, setHouse] = useState()
+  const { id } = useParams
+  console.log(id)
+  async function getHouse() {
+    try {
+      let { data } = await axios.get('http://localhost:4000/house/${id}')
+      setHouse(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  useEffect(() => {
+    getHouse()
+  }, [])
+
   // Gallery
   const [selectedPhoto, setSelectedPhoto] = useState(
     'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295019/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
@@ -143,7 +161,7 @@ export default function House() {
                     style={{ width: '1.27rem', height: '1.27rem' }}
                     src="images/IMG_8468.jpg"
                   />
-                  Daelum M
+                  <span>{house.host && house.host.name}</span>
                 </button>
                 <button
                   className="btn btn-outline-success logout-button"
@@ -156,7 +174,7 @@ export default function House() {
           </nav>
         </div>
       </div>
-      {/* <!-- main imagess --> */}
+      {/* <!-- main images --> */}
       <div className="container border-bottom border-top">
         <div className="row">
           <div className="col">

@@ -20,7 +20,6 @@ export default function LoginForm() {
       const response = await axios.post('http://localhost:4000/login', formInfo)
       console.log(response)
       if (response.data !== 'Invalid Email/Password!') {
-        console.log('yahahah')
         navigateToProfile()
       } else {
         console.log(response.data)
@@ -63,7 +62,7 @@ export default function LoginForm() {
           </div>
         ) : null}
         <button
-          // onClick={navigateToProfile}
+          onClick={navigateToProfile}
           to="/Profile"
           type="submit"
           className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
