@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
+import Header from './Header'
 
 export default function EditHouse() {
   return (
     <>
-      <div className="header">
+      <Header />
+      {/* <div className="header">
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
             <img
@@ -35,7 +37,7 @@ export default function EditHouse() {
             </form>
           </div>
         </nav>
-      </div>
+      </div> */}
       <div className="container">
         <form>
           <h1>Edit House</h1>
@@ -125,5 +127,3 @@ export default function EditHouse() {
     </>
   )
 }
-
-

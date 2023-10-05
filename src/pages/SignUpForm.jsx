@@ -1,27 +1,37 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+axios.defaults.withCredentials = true
 // import { formatWithCursor } from 'prettier'
 
 export default function SignUpForm() {
   const [name, setName] = useState('')
-  const [picture, setPicture] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const formInfo = { name, picture, email, password }
+    const formInfo = { name, avatar, email, password }
     console.log(formInfo)
     try {
       const response = await axios.post(
-        'http://localhost:4000/signup',
+        'http://localhost:4000/SignUp',
         formInfo
       )
       console.log(response)
+      if (response) {
+        navigateToProfile()
+      }
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const navigateToProfile = () => {
+    navigate('/Profile')
   }
 
   return (
@@ -42,8 +52,8 @@ export default function SignUpForm() {
         </label>
         <input
           type="url"
-          value={picture}
-          onChange={(e) => setPicture(e.target.value)}
+          value={avatar}
+          onChange={(e) => setAvatar(e.target.value)}
           placeholder="https://..."
           className="d-block form-control"
         />

@@ -1,7 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import axios from 'axios'
+import axios from 'axios'
+axios.defaults.withCredentials = true
 // import { useNavigate } from 'react-router-dom'
+
+// Link the "Logout" button of the Nav component to a function
+// that makes a GET request to the API logout route,
+// then redirects to the /login route
+const logOut = async () => {
+  try {
+    console.log('hhhhhhh')
+    const response = await axios.get('http://localhost:4000/logout')
+    console.log(response)
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 export default function Header() {
   return (
@@ -39,11 +53,10 @@ export default function Header() {
               className="logo"
               src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
             />
-            <form className="d-flex" role="search">
+            <div className="d-flex">
               <Link
                 to="/Profile"
                 className="btn btn-outline-success login-button me-2"
-                type="submit"
               >
                 <img
                   alt=""
@@ -53,14 +66,13 @@ export default function Header() {
                 />
                 Daelum M
               </Link>
-              <Link
-                to="/Login"
+              <button
+                onClick={logOut}
                 className="btn btn-outline-success logout-button"
-                type="submit"
               >
                 Logout
-              </Link>
-            </form>
+              </button>
+            </div>
           </div>
         </nav>
       </div>

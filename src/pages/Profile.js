@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import Header from './Header'
 
 export default function Profile() {
   const [name, setName] = useState('')
@@ -14,7 +15,8 @@ export default function Profile() {
 
   return (
     <>
-      <div className="header">
+      <Header />
+      {/* <div className="header">
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
             <img
@@ -47,7 +49,7 @@ export default function Profile() {
             </form>
           </div>
         </nav>
-      </div>
+      </div> */}
       <div className="container">
         <div className="row">
           <div className="col-3 me-5 pe-5">

@@ -10,7 +10,7 @@ export default function LoginForm() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const navigateToProfile = () => {
-    navigate('/Profile')
+    navigate('/')
   }
 
   const handleSubmit = async (e) => {

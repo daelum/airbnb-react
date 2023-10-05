@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
+import Header from './Header'
 
 // In the House page, create an object house with all the properties of a house:
 const house = {
@@ -127,6 +129,7 @@ export default function House() {
   // JSX
   return (
     <>
+      <Header />
       {/* <!-- LOGGED OUT --> */}
       {/* <!--<div className="header">
             <nav className="navbar bg-body-tertiary">
@@ -140,7 +143,7 @@ export default function House() {
             </nav>
         </div> --> */}
       {/* <!-- LOGGED IN --> */}
-      <div>
+      {/* <div>
         <div className="header">
           <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">

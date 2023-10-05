@@ -1,9 +1,11 @@
 import HouseCreateForm from './HouseCreateForm'
+import Header from './Header'
 
 export default function HouseCreate() {
   return (
     <>
-      <div className="header">
+      <Header />
+      {/* <div className="header">
         <nav className="navbar bg-body-tertiary">
           <div className="container-fluid">
             <img
@@ -34,13 +36,10 @@ export default function HouseCreate() {
             </form>
           </div>
         </nav>
-      </div>
+      </div> */}
       <div className="container">
         <HouseCreateForm />
       </div>
     </>
   )
 }
-
-
-
