@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react'
 import Header from './Header'
 
 // In the House page, create an object house with all the properties of a house:
