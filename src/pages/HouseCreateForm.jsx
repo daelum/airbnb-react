@@ -83,57 +83,57 @@ export default function HouseCreateForm() {
       />
       <label>Add Photos (Min 2 required, max 9)</label>
       <input
-        type="file"
+        type="text"
         required
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         required
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
       />
       <input
-        type="file"
+        type="text"
         onChange={(e) => handlePhotos(e)}
         className="form-control mb-2"
         placeholder="http://.."
