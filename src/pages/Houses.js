@@ -1,107 +1,64 @@
 // import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Header'
 import React from 'react'
+import axios from 'axios'
 
 //comment 1
-// const [houses, setHouses] = useState([])
 
 export default function Houses() {
-  const houses = [
-    {
-      image:
-        'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
-      title: 'Luxury Villa in Chaweng',
-      price: 350,
-      location: 'Koh Samui',
-      rooms: 3,
-      reviews: 2,
-      score: 1,
-    },
-    {
-      image:
-        'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png',
-      title: 'Luxury Villa in Chaweng',
-      price: 350,
-      location: 'Koh Samui',
-      rooms: 3,
-      reviews: 2,
-      score: 1,
-    },
-  ]
+  const [houses, setHouses] = useState([])
+  const [location, setLocation] = useState('')
+  const [rooms, setRooms] = useState('')
+  const [price, setPrice] = useState('')
+  const [title, setTitle] = useState('')
+
+  useEffect(() => {
+    // Fetch houses data from the API when the component mounts
+    async function fetchHouses() {
+      try {
+        const response = await axios.get('http://localhost:4000/houses')
+        console.log(response.data)
+        setHouses(response.data) // Assuming the API returns an array of house objects
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchHouses()
+  }, [])
 
   const navigate = useNavigate()
   const navigateToHouse = () => {
     navigate('/House')
   }
 
-  const [location, setLocation] = useState('')
-  const [rooms, setRooms] = useState('')
-  const [price, setPrice] = useState('')
-  const [title, setTitle] = useState('')
-
   const handleSubmit = (e) => {
     e.preventDefault()
+    handleSearch()
+  }
 
-    // send all data to the API
-    const searchData = {
-      location,
-      rooms,
-      price,
-      title,
+  const handleSearch = async () => {
+    try {
+      // send all data to the API
+      const searchData = {
+        location,
+        rooms,
+        price,
+        title,
+      }
+      const response = await axios.get('http://localhost:4000/houses', {
+        params: searchData,
+      })
+      console.log({ searchData })
+      console.log(response)
+    } catch (err) {
+      console.log(err)
     }
-
-    console.log({ searchData })
   }
 
   return (
-    //   <!-- LOGGED OUT -->
-    //  <div class="header">
-    //     <nav class="navbar bg-body-tertiary">
-    //         <div class="container-fluid">
-    //             <img class="logo" src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png">
-    //             <form class="d-flex" role="search">
-    //                 <button class="btn btn-outline-success login-button me-2" type="submit">Login</button>
-    //                 <button class="btn btn-outline-success logout-button" type="submit">Logout</button>
-    //             </form>
-    //         </div>
-    //     </nav>
-    // </div>
     <div>
-      {/* <div className="header">
-        <nav className="navbar bg-body-tertiary">
-          <div className="container">
-            <img
-              alt=""
-              className="logo"
-              src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
-            />
-            <form className="d-flex" role="search">
-              <Link
-                to="/Profile"
-                className="btn btn-outline-success login-button me-2"
-                type="submit"
-              >
-                <img
-                  alt=""
-                  className="profile-pic rounded-circle me-1"
-                  style={{ width: '1.27rem', height: '1.27rem' }}
-                  src="images/IMG_8468.jpg"
-                />
-                Daelum M
-              </Link>
-              <Link
-                to="/Login"
-                className="btn btn-outline-success logout-button"
-                type="submit"
-              >
-                Logout
-              </Link>
-            </form>
-          </div>
-        </nav>
-      </div> */}
       <div>
         <Header />
       </div>
@@ -117,7 +74,7 @@ export default function Houses() {
                     id="basic-addon1"
                   ></span>
                   <select
-                    onSubmit={(e) => setLocation(e.target.value)}
+                    onChange={(e) => setLocation(e.target.value)}
                     className="form-select"
                   >
                     <option selected>Any Location</option>
@@ -134,7 +91,7 @@ export default function Houses() {
                     id="basic-addon1"
                   ></span>
                   <select
-                    onSubmit={(e) => setRooms(e.target.value)}
+                    onChange={(e) => setRooms(e.target.value)}
                     className="form-select"
                   >
                     <option selected>Any Rooms</option>
@@ -153,7 +110,7 @@ export default function Houses() {
                     id="basic-addon1"
                   ></span>
                   <input
-                    onSubmit={(e) => setPrice(e.target.value)}
+                    onChange={(e) => setPrice(e.target.value)}
                     className="max-price form-select"
                     type="number"
                   />
@@ -174,7 +131,7 @@ export default function Houses() {
               <div className="col">
                 <div className="input-group mb-3">
                   <input
-                    onSubmit={(e) => setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value)}
                     className="form-control"
                     type="search"
                     placeholder="House name.."
@@ -184,6 +141,7 @@ export default function Houses() {
               <div className="col">
                 <div className="input-group">
                   <button
+                    onClick={handleSearch}
                     className="form-control btn btn-success"
                     type="sumbit"
                   >
@@ -199,27 +157,30 @@ export default function Houses() {
       <div onClick={navigateToHouse} className="container grid text-right">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-1">
           {/* <!-- first card --> */}
-          {houses.map((element, i) => (
-            <div className="col" key={i}>
-              <div className="card shadow">
-                <img src={element.image} className="card-img-top" alt="" />
-                <div className="card-body">
-                  <p className="card-text fs-6">
-                    <i className="bi bi-geo-alt-fill"></i>
-                    {element.location} {'\u2B24'} {element.rooms} Rooms
-                  </p>
-                  <h5 className="card-title">{element.title}</h5>
-                  <div className="row row-cols-2 pt-2 align-content-center">
-                    <p className="col card-text">
-                      <i className="bi bi-hand-thumbs-up-fill text-success"></i>
-                      {element.reviews} Reviews
+          {houses &&
+            houses.map((element, i) => (
+              <div className="col" key={i}>
+                <div className="card shadow">
+                  <img src={element.photos} className="card-img-top" alt="" />
+                  <div className="card-body">
+                    <p className="card-text fs-6">
+                      <i className="bi bi-geo-alt-fill"></i>
+                      {element.location} {'\u2B24'} {element.rooms} Rooms
                     </p>
-                    <p className="col card-text fs-6">${element.price}/night</p>
+                    <h5 className="card-title">{element.title}</h5>
+                    <div className="row row-cols-2 pt-2 align-content-center">
+                      <p className="col card-text">
+                        <i className="bi bi-hand-thumbs-up-fill text-success"></i>
+                        {element.reviews} Reviews
+                      </p>
+                      <p className="col card-text fs-6">
+                        ${element.price}/night
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
