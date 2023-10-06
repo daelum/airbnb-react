@@ -47,11 +47,12 @@ export default function Houses() {
         price,
         title,
       }
-      const response = await axios.get('http://localhost:4000/houses', {
+      const filteredResponse = await axios.get('http://localhost:4000/houses', {
         params: searchData,
       })
       console.log({ searchData })
-      console.log(response)
+      console.log(filteredResponse)
+      setHouses(filteredResponse.data)
     } catch (err) {
       console.log(err)
     }
@@ -81,6 +82,7 @@ export default function Houses() {
                     <option>Koh Phangan</option>
                     <option>Koh Samui</option>
                     <option>Bali</option>
+                    <option>Mars</option>
                   </select>
                 </div>
               </div>
