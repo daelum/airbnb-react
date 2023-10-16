@@ -28,7 +28,6 @@ export default function HouseCreateForm() {
   }
 
   const handlePhotos = (e) => {
-    return setPhotos([photos, e.target.text])
     let arr = [...photos, e.target.value]
     return setPhotos(arr)
   }

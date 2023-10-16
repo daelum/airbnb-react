@@ -64,7 +64,7 @@ export default function LoginForm() {
         ) : null}
         <button
           onClick={navigateToProfile}
-          to="/Profile"
+          to="/"
           type="submit"
           className="d-block btn btn-success mt-2 ps-3 pe-3 pb-2"
         >
